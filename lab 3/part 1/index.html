@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+    height: 40vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.emailContainer {
+    border: 2px solid black;
+    width: 50vw;
+    padding-left: 20px;
+
+}
+
+.emailContainer .inputs {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+}
+
+.emailContainer input {
+    margin-bottom: 6px;
+    border: 2px solid black;
+}
+
+[type="submit"] {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+[name="email"]:invalid,
+[name="username"]:invalid {
+    border-color: rgb(189, 15, 15);
+}
+
+[name="username"]:invalid+p::after {
+    content: "The required user name may only be a series of alphabetical characters.";
+
+}
+
+[name="email"]:invalid+p::after {
+    content: "The required email address may not include any special characters other than the '@' sign.";
+
+}
+
+p {
+    margin: 2px;
+    margin-bottom: 5px;
+    width: 50vw;
+}
+    </style>
+</head>
+<body>
+    <div class="emailContainer">
+        <h1>Change Email Adress</h1>
+        <form>
+            <div class="inputs">
+                <input type="text" name="username" id="username" placeholder="Username" pattern="[a-zA-Z]+" title=""
+                    required>
+                <p>
+                </p>
+                <input type="email" name="email" id="email" placeholder="Email"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                <p>
+                </p>
+                <input type="submit" name="" id="" value="Change">
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
