@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcs & Gradients</title>
+</head>
+<body>
+
+<canvas id="containerCanvas" width="500" height="500"></canvas>
+
+<script>
+    var canvas = document.getElementById("containerCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 5;
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+    var gradient = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 20, canvas.width / 2, canvas.height / 2, 150);
+     gradient.addColorStop(0, "lightblue"); 
+     gradient.addColorStop(1, "blue"); 
+
+   
+    drawCircle(canvas.width / 2, canvas.height / 2, 150, gradient);
+
+   
+    var innerGradient = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 20, canvas.width / 2, canvas.height / 2, 80);
+    innerGradient.addColorStop(0, "lightblue");
+    innerGradient.addColorStop(1, "blue"); 
+
+    drawCircle(canvas.width / 2, canvas.height / 2, 80, innerGradient);
+
+    
+    ctx.font = "100px Arial";
+    ctx.fillStyle = "white";
+    ctx.fillText("N", canvas.width / 2 - 35, canvas.height / 2 + 30);
+
+    
+    function drawCircle(x, y, radius, gradient) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.closePath();
+    }
+</script>
+
+</body>
+</html>
